@@ -3,30 +3,36 @@ import styles from "./Dashboard.module.scss";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { getCharacterInfo } from "../../utils/Api";
 import { CharacterCard } from "../CharacterCard/CharacterCard";
-import { selectCharacters, selectPageCount, setCharacters } from "./DashboardSlice";
+import {
+  selectCharacters,
+  selectPageCount,
+  setCharacters,
+} from "./DashboardSlice";
 import { Characters, Character } from "../../utils/Characters";
-import strings from '../../assets/strings.json'
+import strings from "../../assets/strings.json";
 
 export const Dashboard: FC = () => {
   const dispatch = useAppDispatch();
-  const pageCount: number = useAppSelector(selectPageCount)
-  const characters: Characters | null = useAppSelector(selectCharacters)
+  const pageCount: number = useAppSelector(selectPageCount);
+  const characters: Characters | null = useAppSelector(selectCharacters);
   const [reachedBottom, setReachedBottom] = useState<boolean>(true);
   const [isApiCalled, setIsApiCalled] = useState<boolean>(false);
 
   const handleScroll = () => {
-    const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight
+    const bottom =
+      Math.ceil(window.innerHeight + window.scrollY) >=
+      document.documentElement.scrollHeight;
     if (bottom && reachedBottom) {
       setReachedBottom(true);
     }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, {
-      passive: true
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
     });
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -39,19 +45,17 @@ export const Dashboard: FC = () => {
         }
         setReachedBottom(false);
         setIsApiCalled(false);
-      })
+      });
     }
-  }, [reachedBottom, isApiCalled, setIsApiCalled, setReachedBottom])
+  }, [reachedBottom, isApiCalled, setIsApiCalled, setReachedBottom]);
 
   return (
     <div className={styles.dashboard}>
-      <div >
+      <div>
         <h2 className={styles.title}>{strings.Characters}</h2>
         {characters?.results?.map((character: Character) => (
           <div className={styles.character} key={character.id}>
-            <CharacterCard
-              character={character}
-            />
+            <CharacterCard character={character} />
           </div>
         ))}
       </div>

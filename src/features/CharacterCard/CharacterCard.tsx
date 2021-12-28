@@ -17,7 +17,7 @@ export const CharacterCard: FC<ICharacterCardProps> = (props) => {
   const handleClick = useCallback(() => {
     dispatch(setCharacterDetail(character));
     history.push("/details");
-  }, [dispatch, history, character])
+  }, [dispatch, history, character]);
 
   return (
     <div className={styles.characterCard}>
