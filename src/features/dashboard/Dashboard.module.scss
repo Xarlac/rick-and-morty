@@ -1,0 +1,23 @@
+@import "../../styles/colors.scss";
+
+.dashboard {
+  position: relative;
+  cursor: default;
+  background-color: $ap-grey-1;
+  top: 60px;
+  text-align: center;
+  width: 1600px;
+  margin: 0 auto;
+
+  .character {
+    display: inline-flex;
+    margin: 2px;
+    padding-bottom: 16px;
+  }
+
+  .title {
+    // display: inline-flex;
+    // margin-left: 85px;
+    color: $navy;
+  }
+}
