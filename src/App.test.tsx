@@ -1,8 +1,8 @@
-import React from "react";
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import { App } from "./App";
+import strings from "./assets/strings.json";
 
 test("renders learn react link", () => {
   const { getByText } = render(
@@ -10,6 +10,5 @@ test("renders learn react link", () => {
       <App />
     </Provider>
   );
-
-  expect(getByText(/learn/i)).toBeInTheDocument();
+  expect(getByText(strings.RickAndMort)).toBeInTheDocument();
 });

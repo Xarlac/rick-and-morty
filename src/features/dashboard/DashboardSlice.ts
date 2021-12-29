@@ -18,7 +18,7 @@ export const DashboardSlice = createSlice({
   name: "dashboard",
   initialState,
   reducers: {
-    clearHeaderData: (state) => {
+    clearDashboardData: (state) => {
       Object.assign(state, initialState);
     },
     setPageCount: (state, { payload }: PayloadAction<number>) => {
@@ -41,8 +41,12 @@ export const DashboardSlice = createSlice({
   },
 });
 
-export const { setPageCount, setCharacters, setCharacterDetail } =
-  DashboardSlice.actions;
+export const {
+  clearDashboardData,
+  setPageCount,
+  setCharacters,
+  setCharacterDetail,
+} = DashboardSlice.actions;
 
 export const selectPageCount = (state: RootState): number =>
   state.dashboard.pageCount;
