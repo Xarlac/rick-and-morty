@@ -18,15 +18,6 @@ export const Dashboard: FC = () => {
   const [reachedBottom, setReachedBottom] = useState<boolean>(true);
   const [isApiCalled, setIsApiCalled] = useState<boolean>(false);
 
-  const handleScroll = () => {
-    const bottom =
-      Math.ceil(window.innerHeight + window.scrollY) >=
-      document.documentElement.scrollHeight;
-    if (bottom && reachedBottom) {
-      setReachedBottom(true);
-    }
-  };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, {
       passive: true,
@@ -47,7 +38,16 @@ export const Dashboard: FC = () => {
         setIsApiCalled(false);
       });
     }
-  }, [reachedBottom, isApiCalled, setIsApiCalled, setReachedBottom]);
+  }, [dispatch, reachedBottom, isApiCalled]);
+
+  const handleScroll = () => {
+    const bottom =
+      Math.ceil(window.innerHeight + window.scrollY) >=
+      document.documentElement.scrollHeight;
+    if (bottom && reachedBottom) {
+      setReachedBottom(true);
+    }
+  };
 
   return (
     <div className={styles.dashboard}>

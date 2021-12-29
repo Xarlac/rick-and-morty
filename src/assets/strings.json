@@ -6,5 +6,6 @@
   "Origin": "Origin:",
   "LastEpisodes": "Last Episodes:",
   "Characters": "Characters",
+  "APIError": "API Error",
   "CharactersDetails": "Character Details"
 }

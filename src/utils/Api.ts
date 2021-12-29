@@ -1,3 +1,5 @@
+import strings from "../assets/strings.json";
+
 const baseUrl = "https://rickandmortyapi.com/api";
 const characterPath = "/character/?page=";
 const episodePath = "/episode/";
@@ -9,7 +11,8 @@ export const getCharacterInfo = (pageCount: number) => {
       return result;
     })
     .catch((err) => {
-      console.log("API Error");
+      console.log(strings.APIError);
+      console.log(err);
       return {};
     });
 };
@@ -21,7 +24,8 @@ export const getEpisodes = (episodes: string) => {
       return result;
     })
     .catch((err) => {
-      console.log("API Error");
+      console.log(strings.APIError);
+      console.log(err);
       return {};
     });
 };

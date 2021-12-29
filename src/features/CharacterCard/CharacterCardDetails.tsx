@@ -18,7 +18,7 @@ export const CharacterCardDetails: FC = () => {
     if (characterDetail !== null && characterDetail.episode.length > 0) {
       const episodes: string = getLast5EpisodeId(characterDetail.episode);
       getEpisodes(episodes).then((res: any) => {
-        if (res?.length > 0) {
+        if (Array.isArray(res)) {
           setEpisodes(res.map((data: any) => data.name));
         } else {
           setEpisodes([res.name]);
@@ -61,11 +61,11 @@ export const CharacterCardDetails: FC = () => {
           height={250}
         />
         <h3 className={styles.fieldName}>
-          {strings.Name}{" "}
+          {strings.Name}
           <span className={styles.fieldValue}>{characterDetail.name}</span>
         </h3>
         <h3 className={styles.fieldName}>
-          {strings.Origin}{" "}
+          {strings.Origin}
           <span className={styles.fieldValue}>
             {characterDetail.origin.name}
           </span>
