@@ -1,9 +1,9 @@
-### `To Run to application`
+### `To run to application`
 
-1-)Donwload as zip or clone the master branch
-2-)Open PowerShell in root folder of project
-3-)npm i
-4-)npm run start
+1-)Donwload as zip or clone the master branch<br />
+2-)Open PowerShell in root folder of project<br />
+3-)npm i<br />
+4-)npm run start<br />
 5-)Enjoy :)
 
 ### `npm start`
