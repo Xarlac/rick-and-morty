@@ -1,4 +1,4 @@
-### `To run to application`
+### `How to run application`
 
 1-)Donwload as zip or clone the master branch<br />
 2-)Open PowerShell in root folder of project<br />
