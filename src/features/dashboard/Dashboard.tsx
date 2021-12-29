@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import styles from "./Dashboard.module.scss";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { getCharacterInfo } from "../../utils/Api";
-import { CharacterCard } from "../CharacterCard/CharacterCard";
+import { CharacterCard } from "../characterCard/CharacterCard";
 import {
   selectCharacters,
   selectPageCount,
